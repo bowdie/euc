@@ -21,7 +21,7 @@ The screen module uses an [STM32F030C8](https://www.st.com/resource/en/datasheet
 ## Serial Bus System
 The Sherman S uses a proprietary half-duplex single-wire serial bus system to communicate between the screen module and mainboard. We'll call it *V-Wire* here.
 
-The bus operates at 40KHz.
+The bus operates at 38400 baud.
 
 > It's possible the bus system is based on an open standard and I'm not aware of it. [LIN](forums.ni.com/attachments/ni/30/3619/1/LIN.pdf) has *some* similarities, but it has other differences that make it incompatible.
 
