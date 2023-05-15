@@ -38,14 +38,12 @@ The header is a 17-byte transmission by the screen module MCU.
 
 | Bytes | Value | Description |
 | :---: | ----- | ------- |
-| 1 - 4 | `0x6443544D` | Preamble. Destination and source address |
+| 1-4  | `0x6443544D` | Preamble. Destination and source address |
 | 5     | `0x11` | Count of bytes in this header including preamble and CRC |
 | 6     | `0x00` No Button Pressed<br>`0x01` OK (bottom-left)<br>`0x02` Headlights (top-right)<br>`0x04` Next (top-left) | Command: Button Pressed |
-| 7     | Starts at `0x00` and increments by 1 on every header transmission. | Counter |
-| 8     | `0x00` | End of counter |
-| 9     | Starts at `0x00` and increments by 1 on every *second* header transmission. | Counter |
-| 10     | `0x00` | End of counter |
-| 11     | Starts at `0x00` and increments by 1 on every *second* header transmission. | Counter |
+| 7     | 8-bit number starts at `0x00` and increments by 1 on every header transmission. Restarts when `0xFF` is reached | Counter |
+| 8-9    | 16-bit number starts at `0x0000` and increments by 1 on every *second* header transmission. Restarts when `0xFFFF` is reached | Counter |
+| 10-11  | 16-bit number starts at `0x0000` and increments by 1 on every *second* header transmission. Restarts when `0xFFFF` is reached | Counter |
 | 12     | `0x00` | End of counter
 | 13     | `0xFF` | End of frame data
 | 14-17  | CRC of bytes 1-13. See below for implementation details. | CRC
