@@ -68,7 +68,7 @@ The header is a 56-byte transmission by the motherboard MCU.
 | 38-39 | `0x0000` |
 | 40-41 | 16-bit number to be displayed. Use 2's complement for negative numbers. Last digit will become decimal if decimal point activated. | Info area number | Setting area number |
 | 42 | `0x0` Display numbers in settings area<br>`0x6` Display ASCII text in settings area
-| 43-50 | ASCII to be displayed in capitals. | Setting area text |
+| 43-50 | ASCII to be displayed in capitals. Set to `0x6E6E6E6E6E6E6E6E` when no ASCII displayed. | Setting area text |
 | 51 | `0xFF` | End of frame data |
 | 52 | `0xFF` Solid settings area characters<br>`0xAA` Flashing settings area characters<br>Bit mask over settings area characters - `0xFE` means last character flashing, all others solid | |
 | 53-56  | CRC of bytes 1-13. See below for implementation details. | CRC
